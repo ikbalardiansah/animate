@@ -4,6 +4,8 @@ import WhatsAppFloating from "@/app/(main)/components/whatsapp-floating";
 
 export const metadata = {
   title: "Animate By Yunna Mercier",
+    description:
+    "Local Beauty Brand Skincare lokal viral halal BPOM & terpercaya, hadir untuk kulit sehat dan percaya diri.",
   icons: {
     icon: "/logo-bulet.jpg",
   },
