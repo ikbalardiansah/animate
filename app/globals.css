@@ -1,0 +1,31 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+
+@theme {
+  /* Ini menghubungkan variabel dari Next.js ke Tailwind v4 */
+  --font-sans: var(--font-poppins), ui-sans-serif, system-ui, sans-serif;
+  
+  /* Tambahkan warna brand kamu di sini juga agar rapi */
+  --color-animate: #FF5F9D;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  /* font-family: Arial, Helvetica, sans-serif; */
+}
