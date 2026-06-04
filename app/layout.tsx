@@ -1,5 +1,3 @@
-
-import ActivityPopup from "./(main)/components/pop-up";
 import "./globals.css";
 
 import { Poppins } from "next/font/google";
@@ -16,12 +14,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={poppins.className}>
-       
-        <ActivityPopup />
-        {children}
-      </body>
+    <html lang="en" className="light">
+      <body className={poppins.className}>{children}</body>
     </html>
   );
 }
