@@ -5,7 +5,7 @@ import { useParams, useRouter } from "next/navigation";
 import Link from "next/link";
 import WishlistButton from "@/app/(main)/components/wishlist-button";
 import { useCartStore } from "../../store/cart";
-import { ChevronLeft, Minus, Plus, ShoppingBag, Check } from "lucide-react";
+import { ChevronLeft, Minus, Plus, ShoppingBag, Check, ShoppingCart } from "lucide-react";
 
 const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || "NEXT_PUBLIC_API_URL";
 
@@ -36,30 +36,26 @@ export default function ProductDetailPage() {
   const addToCart = useCartStore((state) => state.addToCart);
 
   const handleAddToCart = () => {
-  if (!product || !currentVar) return;
+    if (!product || !currentVar) return;
 
-  const cartItem = {
-    id: currentVar.id,
-    variation_id: currentVar.id,
+    const cartItem = {
+      id: currentVar.id,
+      variation_id: currentVar.id,
 
-    product_id: product.id,
+      product_id: product.id,
 
-    seller_sku:
-      currentVar.seller_sku ??
-      currentVar.sku_id,
+      seller_sku: currentVar.seller_sku ?? currentVar.sku_id,
 
-    parcel_weight: Number(
-      product.parcel_weight ?? 0
-    ),
+      parcel_weight: Number(product.parcel_weight ?? 0),
 
-    name: product.name,
-    image: selectedImg,
-    price: Number(price),
-    quantity: quantity,
+      name: product.name,
+      image: selectedImg,
+      price: Number(price),
+      quantity: quantity,
+    };
+
+    addToCart(cartItem);
   };
-
-  addToCart(cartItem);
-};
 
   // =========================
   // FETCH PRODUCT DETAIL
@@ -262,6 +258,48 @@ export default function ProductDetailPage() {
               )}
             </div>
 
+            <div className="pt-6 border-t border-gray-100 mt-auto">
+              <div className="flex items-center gap-3.5 flex-wrap sm:flex-nowrap">
+                {/* QTY SELECTOR */}
+                <div className="flex items-center bg-white border border-gray-200 rounded-xl p-1 shadow-sm h-14">
+                  <button
+                    onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                    className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-50 transition-colors active:scale-95"
+                  >
+                    <Minus size={14} />
+                  </button>
+                  <span className="w-10 text-center text-sm font-semibold text-gray-800">
+                    {quantity}
+                  </span>
+                  <button
+                    onClick={() =>
+                      setQuantity((prev) => Math.min(stock || 0, prev + 1))
+                    }
+                    className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-50 transition-colors active:scale-95"
+                    disabled={isOutOfStock}
+                  >
+                    <Plus size={14} />
+                  </button>
+                </div>
+
+                {/* ADD TO CART BUTTON */}
+                <button
+                  disabled={isOutOfStock}
+                  onClick={handleAddToCart}
+                  className="flex items-center justify-center gap-2 flex-1 bg-[#FF5F9D] hover:bg-pink-600 text-white h-14 rounded-xl font-semibold transition-all"
+                >
+                  <ShoppingCart size={20} />
+                  <span>Keranjang</span>
+                </button>
+
+                {/* WISHLIST BUTTON */}
+                <WishlistButton
+                  product={product}
+                  className="relative flex items-center justify-center w-14 h-14 bg-white border border-gray-200 rounded-xl text-gray-400 hover:text-rose-500 hover:bg-rose-50/20 transition-all active:scale-90 shadow-sm"
+                />
+              </div>
+            </div>
+
             {/* VARIANT PICKER */}
             {variants?.length > 1 && (
               <div>
@@ -333,46 +371,6 @@ export default function ProductDetailPage() {
             </div>
 
             {/* ACTION PANEL (QTY & ADD TO CART) */}
-            <div className="pt-6 border-t border-gray-100 mt-auto">
-              <div className="flex items-center gap-3.5 flex-wrap sm:flex-nowrap">
-                {/* QTY SELECTOR */}
-                <div className="flex items-center bg-white border border-gray-200 rounded-xl p-1 shadow-sm h-14">
-                  <button
-                    onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
-                    className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-50 transition-colors active:scale-95"
-                  >
-                    <Minus size={14} />
-                  </button>
-                  <span className="w-10 text-center text-sm font-semibold text-gray-800">
-                    {quantity}
-                  </span>
-                  <button
-                    onClick={() =>
-                      setQuantity((prev) => Math.min(stock || 0, prev + 1))
-                    }
-                    className="w-10 h-10 flex items-center justify-center rounded-lg text-gray-500 hover:bg-gray-50 transition-colors active:scale-95"
-                    disabled={isOutOfStock}
-                  >
-                    <Plus size={14} />
-                  </button>
-                </div>
-
-                {/* ADD TO CART BUTTON */}
-                <button
-                  disabled={isOutOfStock}
-                  onClick={handleAddToCart}
-                  className="flex-1 bg-[#FF5F9D] hover:bg-pink-600 text-white h-14 rounded-xl font-semibold text-sm tracking-wide transition-all shadow-md shadow-pink-100 active:scale-[0.98] disabled:bg-gray-200 disabled:text-gray-400 disabled:shadow-none"
-                >
-                  {stock > 0 ? "TAMBAH KE KERANJANG" : "STOK HABIS"}
-                </button>
-
-                {/* WISHLIST BUTTON */}
-                <WishlistButton
-                  product={product}
-                  className="relative flex items-center justify-center w-14 h-14 bg-white border border-gray-200 rounded-xl text-gray-400 hover:text-rose-500 hover:bg-rose-50/20 transition-all active:scale-90 shadow-sm"
-                />
-              </div>
-            </div>
           </div>
         </div>
 
