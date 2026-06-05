@@ -139,7 +139,7 @@ function ProductListContent() {
   if (!mounted) return null;
 
   return (
-    <main className="min-h-screen bg-[#FAFAFA] p-4 md:p-12">
+    <main className="min-h-screen bg-[#FFF5F8] p-4 md:p-12">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row gap-8">
         {/* Mobile Filter Button */}
         <button
@@ -199,7 +199,7 @@ function ProductListContent() {
                   return (
                     <div
                       key={item.id}
-                      className="group relative flex flex-col bg-white"
+                      className="group relative flex flex-col bg-white rounded-2xl overflow-hidden border border-pink-50/60 p-1 transition-all duration-300 hover:shadow-[0_10px_25px_-10px_rgba(255,95,157,0.15)]"
                     >
                       {/* IMAGE CONTAINER WITH FLOATING ELEVATED CART BUTTON */}
                       <div className="relative aspect-square overflow-hidden bg-gray-50 rounded-xl mb-3">
