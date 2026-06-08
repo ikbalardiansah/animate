@@ -236,6 +236,13 @@ export default function Navbar() {
             </Link>
 
             <Link
+              href="/offline-store"
+              className="flex items-center gap-1 text-sm text-slate-800 hover:text-[#FF5F9D] transition-colors tracking-tight"
+            >
+              Offline Store
+            </Link>
+
+            <Link
               href="/"
               className="flex items-center gap-1 text-sm text-slate-800 hover:text-[#FF5F9D] transition-colors tracking-tight"
             >
@@ -592,6 +599,9 @@ export default function Navbar() {
             </summary>
             <summary className="flex justify-between items-center list-none text-base text-slate-800 cursor-pointer">
               <Link href="/shop/tracking">Lacak Pesanan </Link>
+            </summary>
+            <summary className="flex justify-between items-center list-none text-base text-slate-800 cursor-pointer">
+              <Link href="/offline-store">Offline Store </Link>
             </summary>
             <summary className="flex justify-between items-center list-none text-base text-slate-800 cursor-pointer">
               <Link href="/">Beranda </Link>

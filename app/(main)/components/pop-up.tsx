@@ -23,10 +23,15 @@ export default function ActivityPopup() {
       .then((res) => {
         if (res.success && res.data) {
           const popupData = res.data;
-          const storageKey = `popup_seen_${popupData.id}`;
+          const today = new Date().toISOString().split("T")[0];
+
+          const storageKey = `popup_seen_${popupData.id}_${today}`;
+
           const currentCount = Number(localStorage.getItem(storageKey) || 0);
 
-          if (currentCount >= (popupData.popup_max_show || 2)) return;
+          if (currentCount >= (popupData.popup_max_show || 2)) {
+            return;
+          }
 
           setPopup(popupData);
 
