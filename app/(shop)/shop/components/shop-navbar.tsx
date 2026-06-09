@@ -236,7 +236,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/offline-store"
+              href="/shop/offline-store"
               className="flex items-center gap-1 text-sm text-slate-800 hover:text-[#FF5F9D] transition-colors tracking-tight"
             >
               Offline Store
@@ -611,7 +611,7 @@ export default function Navbar() {
             </Link>
 
             <Link
-              href="/offline-store"
+              href="/shop/offline-store"
               className="block text-base text-slate-800 hover:text-[#FF5F9D]"
             >
               Offline Store
