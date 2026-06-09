@@ -75,9 +75,9 @@ export default function ActivityPopup() {
           {/* BAGIAN KONTEN - Fokus pada tipografi luxury */}
           <div className="p-6 sm:p-8 md:p-10 flex flex-col items-center text-center">
             {/* Tagline Kecil */}
-            <span className="text-[10px] font-bold tracking-[0.2em] uppercase mb-2">
+            {/* <span className="text-[10px] font-bold tracking-[0.2em] uppercase mb-2">
               Kabar Spesial
-            </span>
+            </span> */}
 
             {/* Judul Utama Serif */}
             <h2 className="text-xl sm:text-2xl md:text-3xl font-bold tracking-tight text-[#FF5F9D] leading-tight mb-3">
@@ -86,9 +86,7 @@ export default function ActivityPopup() {
 
             {/* Deskripsi Singkat */}
             <p className="text-xs sm:text-sm text-gray-500 leading-relaxed max-w-md mb-8">
-              Upgrade rutinitas perawatan kulitmu dengan koleksi paling
-              dinantikan musim ini. Jangan lewatkan penawaran eksklusif khusus
-              untukmu.
+             {popup.description}
             </p>
 
             {/* CTA Group Terintegrasi Secara Minimalis */}

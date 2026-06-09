@@ -71,8 +71,6 @@ function ProductListContent() {
       parcel_weight: Number(item.parcel_weight ?? 0),
     };
 
-
-
     addToCart(cartItem);
   };
 
@@ -178,8 +176,7 @@ function ProductListContent() {
               <div className="grid grid-cols-2 sm:grid-cols-3 xl:grid-cols-4 gap-x-4 gap-y-8 md:gap-x-6 md:gap-y-12">
                 {products.map((item) => {
                   const imageUrl =
-                    item.images?.[0]?.image_url ||
-                    "https://placehold.co/400x400";
+                    item.main_image || "https://placehold.co/400x400";
 
                   const validPrices =
                     item.variants

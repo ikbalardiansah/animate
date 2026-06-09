@@ -176,7 +176,7 @@ const ExploreSeriesSlider = () => {
               const currentPrice = parseFloat(prod.price || "0");
 
               // 1. FAKE RATING DINAMIS BERDASARKAN ID PRODUK
-              const ratingPool = [4.8, 4.9, 5.0, 4.7];
+              const ratingPool = [4.8, 4.9, 5.0, 4.7, 4.5, 4.6];
               const currentRating = ratingPool[prod.id % ratingPool.length];
 
               // Hitung jumlah bintang solid
