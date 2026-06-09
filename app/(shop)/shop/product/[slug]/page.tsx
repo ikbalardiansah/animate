@@ -238,7 +238,7 @@ export default function ProductDetailPage() {
             </div>
 
             {/* PRICE AREA */}
-            <div className="border-y border-gray-100 py-5 flex items-baseline gap-3 flex-wrap">
+            <div className="border-y border-gray-100 flex items-baseline gap-3 flex-wrap">
               <span className="text-3xl md:text-4xl font-bold tracking-tight text-[#FF5F9D]">
                 {new Intl.NumberFormat("id-ID", {
                   style: "currency",

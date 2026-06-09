@@ -575,37 +575,54 @@ export default function Navbar() {
         <div className="px-6 py-8 space-y-6">
           <div className="space-y-4">
             <details className="group">
-              <summary className="flex justify-between items-center list-none text-base text-slate-800 cursor-pointer">
-                Explore{" "}
+              <summary className="flex items-center justify-between list-none cursor-pointer text-base text-slate-800">
+                Explore
                 <ChevronDown
                   size={18}
-                  className="group-open:rotate-180 transition-transform"
+                  className="transition-transform group-open:rotate-180"
                 />
               </summary>
+
               <div className="mt-4 space-y-2 border-l-2 border-pink-100 pl-4">
                 {menuItems.map((item, i) => (
                   <Link
                     key={i}
                     href={item.href}
-                    className="block text-sm text-slate-600 hover:text-[#FF5F9D] transition-colors"
+                    className="block text-sm text-slate-600 transition-colors hover:text-[#FF5F9D]"
                   >
                     {item.label}
                   </Link>
                 ))}
               </div>
             </details>
-            <summary className="flex justify-between items-center list-none text-base text-slate-800 cursor-pointer">
-              <Link href="/shop/product">Shop </Link>
-            </summary>
-            <summary className="flex justify-between items-center list-none text-base text-slate-800 cursor-pointer">
-              <Link href="/shop/tracking">Lacak Pesanan </Link>
-            </summary>
-            <summary className="flex justify-between items-center list-none text-base text-slate-800 cursor-pointer">
-              <Link href="/offline-store">Offline Store </Link>
-            </summary>
-            <summary className="flex justify-between items-center list-none text-base text-slate-800 cursor-pointer">
-              <Link href="/">Beranda </Link>
-            </summary>
+
+            <Link
+              href="/shop/product"
+              className="block text-base text-slate-800 hover:text-[#FF5F9D]"
+            >
+              Shop
+            </Link>
+
+            <Link
+              href="/shop/tracking"
+              className="block text-base text-slate-800 hover:text-[#FF5F9D]"
+            >
+              Lacak Pesanan
+            </Link>
+
+            <Link
+              href="/offline-store"
+              className="block text-base text-slate-800 hover:text-[#FF5F9D]"
+            >
+              Offline Store
+            </Link>
+
+            <Link
+              href="/"
+              className="block text-base text-slate-800 hover:text-[#FF5F9D]"
+            >
+              Beranda
+            </Link>
           </div>
         </div>
       </div>
